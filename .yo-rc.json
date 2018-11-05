@@ -1,0 +1,41 @@
+{
+  "generator-ngx-rocket": {
+    "version": "5.3.0",
+    "props": {
+      "location": "path",
+      "appName": "BePing",
+      "target": [
+        "web"
+      ],
+      "pwa": false,
+      "ui": "bootstrap",
+      "auth": false,
+      "lazy": true,
+      "angulartics": false,
+      "prettier": false,
+      "projectName": "be-ping",
+      "packageManager": "npm",
+      "mobile": []
+    }
+  },
+  "generator-addon-firebase": {
+    "version": "2.0.0",
+    "props": {
+      "firebaseDeploy": true,
+      "appName": "BePing",
+      "projectName": "be-ping",
+      "packageManager": "npm",
+      "location": "path",
+      "target": [
+        "web"
+      ],
+      "pwa": false,
+      "ui": "bootstrap",
+      "auth": false,
+      "lazy": true,
+      "angulartics": false,
+      "prettier": false,
+      "mobile": []
+    }
+  }
+}

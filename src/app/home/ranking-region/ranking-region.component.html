@@ -1,0 +1,6 @@
+<mat-tab-group>
+  <mat-tab [label]="ranking.name" *ngFor="let ranking of rankings">
+    <app-category-list [categories]="ranking.categories"></app-category-list>
+  </mat-tab>
+</mat-tab-group>
+

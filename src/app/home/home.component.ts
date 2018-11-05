@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { finalize } from 'rxjs/operators';
-
-import { QuoteService } from './quote.service';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -10,16 +10,19 @@ import { QuoteService } from './quote.service';
 })
 export class HomeComponent implements OnInit {
 
-  quote: string;
-  isLoading: boolean;
+  public rankings: Observable<any>;
+  public weekName: number;
 
-  constructor(private quoteService: QuoteService) { }
+  constructor(private db: AngularFireDatabase) {}
 
   ngOnInit() {
-    this.isLoading = true;
-    this.quoteService.getRandomQuote({ category: 'dev' })
-      .pipe(finalize(() => { this.isLoading = false; }))
-      .subscribe((quote: string) => { this.quote = quote; });
+    this.rankings = this.db
+      .list('/tops')
+      .valueChanges()
+      .pipe(
+        map((everyWeekRanking) => everyWeekRanking.pop()),
+        tap((rankings: {rankings: any; week: number}) => this.weekName = rankings.week),
+        map(rankings => rankings.rankings)
+      )
   }
-
 }

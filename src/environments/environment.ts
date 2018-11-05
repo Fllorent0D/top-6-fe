@@ -10,10 +10,15 @@ export const environment = {
   version: env.npm_package_version + '-dev',
   serverUrl: '/api',
   defaultLanguage: 'en-US',
-  supportedLanguages: [
-    'en-US',
-    'fr-FR'
-  ]
+  supportedLanguages: ['en-US', 'fr-FR'],
+  firebase:  {
+    apiKey: "***REMOVED***",
+    authDomain: "beping-196714.firebaseapp.com",
+    databaseURL: "https://beping-196714.firebaseio.com",
+    projectId: "beping-196714",
+    storageBucket: "beping-196714.appspot.com",
+    messagingSenderId: "169133988850"
+  }
 };
 
 /*

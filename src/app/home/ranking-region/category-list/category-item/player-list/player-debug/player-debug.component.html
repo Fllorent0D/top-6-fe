@@ -1,0 +1,67 @@
+<h2 mat-dialog-title>{{(playerData | async)?.uniqueIndex }} - {{(playerData | async)?.name }} ({{(playerData |
+  async)?.clubIndex }})</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>Matchs joués</h3>
+  <table mat-table [dataSource]="(playerData | async)?.victoryHistory">
+
+    <ng-container matColumnDef="weekName">
+      <th mat-header-cell *matHeaderCellDef>Semaine</th>
+      <td mat-cell *matCellDef="let element"> {{element.weekName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="divisionCategory">
+      <th mat-header-cell *matHeaderCellDef>Catégorie</th>
+      <td mat-cell *matCellDef="let element"> {{element.divisionCategory}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="matchId">
+      <th mat-header-cell *matHeaderCellDef>Match</th>
+      <td mat-cell *matCellDef="let element"> {{element.matchId}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="victoryCount">
+      <th mat-header-cell *matHeaderCellDef> Victoires</th>
+      <td mat-cell *matCellDef="let element"> {{element.victoryCount}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="forfeit">
+      <th mat-header-cell *matHeaderCellDef> Forfaits</th>
+      <td mat-cell *matCellDef="let element"> {{element.forfeit}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="pointsWon">
+      <th mat-header-cell *matHeaderCellDef> Points gagnés</th>
+      <td mat-cell *matCellDef="let element"> {{element.pointsWon}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsVictoryHistory"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsVictoryHistory;"></tr>
+  </table>
+  <hr>
+  <h3>Evolution du classement</h3>
+  <table mat-table [dataSource]="(playerData | async)?.rankingEvolution">
+
+    <ng-container matColumnDef="weekName">
+      <th mat-header-cell *matHeaderCellDef>Semaine</th>
+      <td mat-cell *matCellDef="let element"> {{element.weekName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="rankingCategory">
+      <th mat-header-cell *matHeaderCellDef>Catégorie</th>
+      <td mat-cell *matCellDef="let element"> {{element.rankingCategory}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="points">
+      <th mat-header-cell *matHeaderCellDef> Points</th>
+      <td mat-cell *matCellDef="let element"> {{element.points}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsRankingEvolution"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsRankingEvolution;"></tr>
+  </table>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close tabindex="-1" color="primary" mat-raised-button>Fermer</button>
+</mat-dialog-actions>
