@@ -1,6 +1,12 @@
 {
   "rules": {
-    ".read": "auth != null",
-    ".write": "auth != null"
+    "tops": {
+      ".read": "true",
+      ".write": "auth != null"
+    },
+    "debug": {
+      ".read": "true",
+      ".write": "auth != null"
+    }
   }
 }
