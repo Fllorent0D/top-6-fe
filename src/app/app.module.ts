@@ -9,13 +9,10 @@ import { environment } from '@env/environment';
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 import { HomeModule } from './home/home.module';
-import { ShellModule } from './shell/shell.module';
-import { AboutModule } from './about/about.module';
-import { LoginModule } from './login/login.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 @NgModule({
   imports: [
@@ -26,13 +23,10 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     NgbModule,
     CoreModule,
     SharedModule,
-    ShellModule,
     HomeModule,
-    AboutModule,
-    LoginModule,
     AppRoutingModule, // must be imported as the last module as it contains the fallback route
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFirestoreModule
   ],
   declarations: [AppComponent],
   providers: [],

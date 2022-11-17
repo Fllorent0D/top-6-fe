@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database';
-import { MatDialog } from '@angular/material';
 import { PlayerDebugComponent } from '@app/home/ranking-region/category-list/category-item/player-list/player-debug/player-debug.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-player-list',
@@ -13,7 +12,7 @@ export class PlayerListComponent implements OnInit {
   @Input() players: any[];
   displayedColumns: string[] = ['position', 'name', 'club', 'points', 'action'];
 
-  constructor(private db: AngularFireDatabase, private dialog: MatDialog) {
+  constructor(private dialog: MatDialog) {
   }
 
   ngOnInit() {

@@ -8,6 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class RankingRegionComponent implements OnInit {
   @Input() rankings: any[];
 
+  rankingsName: string[] = ['VERVIERS', 'HUY_WAREMME', 'LIEGE'];
+
   constructor() { }
 
   ngOnInit() {

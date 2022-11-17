@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { first, map, take, tap } from 'rxjs/operators';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-home',
@@ -12,17 +12,11 @@ export class HomeComponent implements OnInit {
 
   public rankings: Observable<any>;
   public weekName: number;
+  public isLoading: boolean = true;
 
-  constructor(private db: AngularFireDatabase) {}
+  constructor(private db: AngularFirestore) {}
 
   ngOnInit() {
-    this.rankings = this.db
-      .list('/tops')
-      .valueChanges()
-      .pipe(
-        map((everyWeekRanking) => everyWeekRanking.pop()),
-        tap((rankings: {rankings: any; week: number}) => this.weekName = rankings.week),
-        map(rankings => rankings.rankings)
-      )
+
   }
 }

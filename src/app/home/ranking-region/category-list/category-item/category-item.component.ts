@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CategoryItemComponent implements OnInit {
 
-  @Input() category: any;
+  @Input() category: [string, any[]];
 
   constructor() { }
 

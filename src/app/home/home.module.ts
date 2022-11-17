@@ -6,21 +6,20 @@ import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { QuoteService } from './quote.service';
 import { RankingRegionComponent } from './ranking-region/ranking-region.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CategoryListComponent } from './ranking-region/category-list/category-list.component';
 import { CategoryItemComponent } from './ranking-region/category-list/category-item/category-item.component';
 import { PlayerListComponent } from './ranking-region/category-list/category-item/player-list/player-list.component';
 import { PlayerItemComponent } from './ranking-region/category-list/category-item/player-list/player-item/player-item.component';
-import {
-  MatButtonModule,
-  MatDialogModule,
-  MatTableModule,
-  MatTabsModule
-} from '@angular/material';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PlayerDebugComponent } from './ranking-region/category-list/category-item/player-list/player-debug/player-debug.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   imports: [
@@ -34,7 +33,8 @@ import { PlayerDebugComponent } from './ranking-region/category-list/category-it
     MatTabsModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressBarModule
   ],
   declarations: [
     HomeComponent,
@@ -46,7 +46,6 @@ import { PlayerDebugComponent } from './ranking-region/category-list/category-it
     PlayerDebugComponent
   ],
   entryComponents: [PlayerDebugComponent],
-  providers: [QuoteService]
 })
 export class HomeModule {
 }
