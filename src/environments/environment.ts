@@ -10,7 +10,7 @@ export const environment = {
   defaultLanguage: 'en-US',
   supportedLanguages: ['en-US', 'fr-FR'],
   firebase:  {
-    apiKey: "***REMOVED***",
+    apiKey: "**REMOVED**",
     authDomain: "top-6-653f6.firebaseapp.com",
     projectId: "top-6-653f6",
     storageBucket: "top-6-653f6.appspot.com",
